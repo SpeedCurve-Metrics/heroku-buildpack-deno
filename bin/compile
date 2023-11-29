@@ -46,10 +46,7 @@ fi
 
 if [ -f heroku_build.ts ]
 then
-  #
-  # heroku_build.ts (Customizing the build process)
-  #
-  #export HEROKU_BUILD_DIR="$BUILD_DIR"
-  $BIN_DIR/deno run -A --unstable heroku_build.ts
-  cp -rpT $HOME $BUILD_DIR
+  # Run a custom script a build time
+  $BIN_DIR/deno run --allow-all heroku_build.ts
+  cp --recursive --no-target-directory $HOME $BUILD_DIR
 fi
